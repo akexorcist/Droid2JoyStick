@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_get_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Get Connection" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="1" />
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="2" />
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="3" />
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Up" />
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Down" />
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Left" />
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_press_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Right" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <com.akexorcist.d2j.widget.JoyStickPad
+            android:id="@+id/js_analog_left"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_gamepad_bg">
+
+            <!-- You may use any View here. -->
+            <com.akexorcist.d2j.widget.GamepadButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_gamepad_stick" />
+
+        </com.akexorcist.d2j.widget.JoyStickPad>
+
+        <com.akexorcist.d2j.widget.JoyStickPad
+            android:id="@+id/js_analog_right"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_gamepad_bg">
+
+            <!-- You may use any View here. -->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_gamepad_stick" />
+
+        </com.akexorcist.d2j.widget.JoyStickPad>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <com.akexorcist.d2j.widget.GamepadButton
+            android:id="@+id/btn_r1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R1" />
+    </LinearLayout>
+
+</LinearLayout>
