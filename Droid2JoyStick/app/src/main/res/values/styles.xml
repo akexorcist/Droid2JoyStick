@@ -14,4 +14,19 @@
         <item name="colorControlNormal">@color/white</item>
     </style>
 
+    <style name="AssaultHorizonImageButton" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:tint">@color/extra_dark_gray</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
+    <style name="FullscreenButton" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:src">@drawable/ic_fullscreen</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:tint">@color/white</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
 </resources>

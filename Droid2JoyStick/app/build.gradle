@@ -33,4 +33,5 @@ dependencies {
         transitive = true
     }
     compile 'com.jmedeisis:bugstick:0.2.2'
+    compile 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:0.6.0'
 }

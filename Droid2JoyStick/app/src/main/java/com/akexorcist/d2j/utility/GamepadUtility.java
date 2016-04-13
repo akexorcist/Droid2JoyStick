@@ -1,5 +1,7 @@
 package com.akexorcist.d2j.utility;
 
+import com.akexorcist.d2j.singleton.bluetooth.BluetoothManager;
+
 /**
  * Created by Akexorcist on 4/13/2016 AD.
  */
@@ -40,4 +42,6 @@ public class GamepadUtility {
         }
         return Math.round((yRatio * 127f) * offset);
     }
+
+
 }

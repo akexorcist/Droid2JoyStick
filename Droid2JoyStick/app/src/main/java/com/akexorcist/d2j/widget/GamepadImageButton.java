@@ -2,27 +2,26 @@ package com.akexorcist.d2j.widget;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 /**
  * Created by Akexorcist on 4/13/2016 AD.
  */
-public class GamepadButton extends AppCompatButton {
+public class GamepadImageButton extends AppCompatImageButton {
     private GamepadPressListener gamepadPressListener;
 
-    public GamepadButton(Context context) {
+    public GamepadImageButton(Context context) {
         super(context);
     }
 
-    public GamepadButton(Context context, AttributeSet attrs) {
+    public GamepadImageButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public GamepadButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public GamepadImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

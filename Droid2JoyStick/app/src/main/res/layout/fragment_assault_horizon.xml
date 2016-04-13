@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar
+                    android:id="@+id/sb_speed"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:max="255"
+                    android:progress="127"
+                    app:seekBarRotation="CW270" />
+
+            </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/sb_yaw"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:max="255"
+                android:progress="127" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.akexorcist.d2j.widget.JoyStickPad
+                android:id="@+id/js_analog_left"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_gamepad_bg">
+
+                <!-- You may use any View here. -->
+                <com.akexorcist.d2j.widget.GamepadImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/shape_gamepad_stick" />
+
+            </com.akexorcist.d2j.widget.JoyStickPad>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <com.akexorcist.d2j.widget.GamepadImageButton
+                    android:id="@+id/btn_l1"
+                    style="@style/AssaultHorizonImageButton"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_camera" />
+
+                <com.akexorcist.d2j.widget.GamepadImageButton
+                    android:id="@+id/btn_4"
+                    style="@style/AssaultHorizonImageButton"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_change_weapon" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <com.akexorcist.d2j.widget.GamepadImageButton
+                    android:id="@+id/btn_r1"
+                    style="@style/AssaultHorizonImageButton"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flares" />
+
+                <com.akexorcist.d2j.widget.GamepadImageButton
+                    android:id="@+id/btn_3"
+                    style="@style/AssaultHorizonImageButton"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_change_target" />
+
+            </LinearLayout>
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_l2"
+                style="@style/AssaultHorizonImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_dfm" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.akexorcist.d2j.widget.GamepadImageButton
+                    android:id="@+id/btn_1"
+                    style="@style/AssaultHorizonImageButton"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_machine_gun" />
+
+                <com.akexorcist.d2j.widget.GamepadImageButton
+                    android:id="@+id/btn_2"
+                    style="@style/AssaultHorizonImageButton"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_missile" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/cb_accelerometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:text="Use Accelerometer" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btn_fullscreen"
+        style="@style/FullscreenButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+</RelativeLayout>
