@@ -7,4 +7,8 @@
     <dimen name="default_text_size_large">18sp</dimen>
     <dimen name="default_text_size_extra_large">22sp</dimen>
 
+    <dimen name="default_text_button_size_small">24sp</dimen>
+    <dimen name="default_text_button_size">28sp</dimen>
+    <dimen name="default_text_button_size_large">32sp</dimen>
+
 </resources>

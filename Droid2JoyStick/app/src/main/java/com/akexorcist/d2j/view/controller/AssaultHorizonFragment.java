@@ -1,4 +1,4 @@
-package com.akexorcist.d2j.view;
+package com.akexorcist.d2j.view.controller;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -23,6 +23,8 @@ import com.akexorcist.d2j.singleton.bluetooth.BluetoothManager;
 import com.akexorcist.d2j.singleton.bluetooth.event.BluetoothConnectedEvent;
 import com.akexorcist.d2j.singleton.gamepad.GamepadKey;
 import com.akexorcist.d2j.utility.AssaultHorizonUtility;
+import com.akexorcist.d2j.view.ActivityListener;
+import com.akexorcist.d2j.view.FullscreenListener;
 import com.akexorcist.d2j.widget.GamepadImageButton;
 import com.akexorcist.d2j.widget.JoyStickPad;
 import com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar;
@@ -96,6 +98,8 @@ public class AssaultHorizonFragment extends Fragment implements GamepadImageButt
         btnL2.setGamepadPressListener(this);
         btnFullscreen.setOnClickListener(this);
         jsAnalogLeft.setJoyStickActionListener(this);
+        jsAnalogLeft.setRepeatTouchEventDelay(50);
+        ((ActivityListener) getActivity()).setActivityTitle("Assault Horizon");
     }
 
     private void setupComponent() {

@@ -1,7 +1,6 @@
 package com.akexorcist.d2j.view;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +21,11 @@ import com.afollestad.assent.PermissionResultSet;
 import com.akexorcist.d2j.R;
 import com.akexorcist.d2j.singleton.BusProvider;
 import com.akexorcist.d2j.singleton.bluetooth.BluetoothManager;
+import com.akexorcist.d2j.view.controller.AssaultHorizonFragment;
+import com.akexorcist.d2j.view.controller.AwesomenautsFragment;
+import com.akexorcist.d2j.view.controller.BasicGamepad1Fragment;
+import com.akexorcist.d2j.view.controller.BombSquadFragment;
+import com.akexorcist.d2j.view.controller.FinalFantasyXIIIFragment;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.context.IconicsLayoutInflater;
 import com.mikepenz.materialdrawer.Drawer;
@@ -35,7 +39,14 @@ import java.util.Random;
 
 import app.akexorcist.bluetotohspp.library.BluetoothState;
 
-public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerItemClickListener, FullscreenListener {
+public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerItemClickListener, FullscreenListener, ActivityListener {
+    private static final String KEY_DEVICE_CONNECTION = "device_connection";
+    private static final String KEY_BASIC_GAMEPAD_1 = "basic_gamepad_1";
+    private static final String KEY_ASSAULT_HORIZON = "assault_horizon";
+    private static final String KEY_AWESOMENAUTS = "awesomenauts";
+    private static final String KEY_BOMBSQUAD = "bombsquad";
+    private static final String KEY_FINAL_FANTASY_XIII = "final_fantasy_xiii";
+
     private Toolbar tbMain;
     private Drawer ndMenu;
     private boolean isFullscreen = false;
@@ -92,6 +103,15 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
     }
 
     @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
+            finish();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Assent.handleResult(permissions, grantResults);
@@ -116,13 +136,20 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
     @Override
     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
         String item = drawerItem.getTag().toString();
-        if (item.equalsIgnoreCase("device_connection")) {
-//            replaceFragment(DeviceConnectionFragment.newInstance());
+        if (item.equalsIgnoreCase(KEY_DEVICE_CONNECTION)) {
             BluetoothManager.getInstance().openBluetoothConnection(this);
         } else if (item.equalsIgnoreCase("settings")) {
             Log.e("Check", "Settings");
-        } else if (item.equalsIgnoreCase("assault_horizon")) {
-            replaceFragment(AssaultHorizonFragment.newInstance());
+        } else if (item.equalsIgnoreCase(KEY_ASSAULT_HORIZON)) {
+            openAssaultHorizonFragment();
+        } else if (item.equalsIgnoreCase(KEY_FINAL_FANTASY_XIII)) {
+            openFinalFantasyXIIIFragment();
+        } else if (item.equalsIgnoreCase(KEY_AWESOMENAUTS)) {
+            openAwesomenautsFragment();
+        } else if (item.equalsIgnoreCase(KEY_BOMBSQUAD)) {
+            openBombSquadFragment();
+        } else if (item.equalsIgnoreCase(KEY_BASIC_GAMEPAD_1)) {
+            openBasicGamepadFragment();
         }
         return true;
     }
@@ -164,11 +191,13 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
                 .withSetSelected(false)
                 .withSetSelected(false)
                 .withEnabled(false);
-        PrimaryDrawerItem joyType1DrawerItem = new PrimaryDrawerItem().withName("Assault Horizon").withTag("assault_horizon").withLevel(2);
-        PrimaryDrawerItem joyType2DrawerItem = new PrimaryDrawerItem().withName("Awesomenauts").withTag("side_scroll").withLevel(2);
-        PrimaryDrawerItem joyType3DrawerItem = new PrimaryDrawerItem().withName("Dirt 3").withTag("Racing").withLevel(2);
+        PrimaryDrawerItem joyType0DrawerItem = new PrimaryDrawerItem().withName("Basic Gamepad").withTag(KEY_BASIC_GAMEPAD_1).withLevel(2);
+        PrimaryDrawerItem joyType1DrawerItem = new PrimaryDrawerItem().withName("Assault Horizon").withTag(KEY_ASSAULT_HORIZON).withLevel(2);
+        PrimaryDrawerItem joyType2DrawerItem = new PrimaryDrawerItem().withName("Awesomenauts").withTag(KEY_AWESOMENAUTS).withLevel(2);
+        PrimaryDrawerItem joyType3DrawerItem = new PrimaryDrawerItem().withName("BombSquad").withTag(KEY_BOMBSQUAD).withLevel(2);
+        PrimaryDrawerItem joyType4DrawerItem = new PrimaryDrawerItem().withName("Final Fantasy XIII").withTag(KEY_FINAL_FANTASY_XIII).withLevel(2);
         SectionDrawerItem sectionDrawerItem = new SectionDrawerItem().withName("Joystick Type").withTextColorRes(R.color.colorAccent);
-        PrimaryDrawerItem deviceDrawerItem = new PrimaryDrawerItem().withName("Device Connection").withTag("device_connection").withIcon(GoogleMaterial.Icon.gmd_devices);
+        PrimaryDrawerItem deviceDrawerItem = new PrimaryDrawerItem().withName("Device Connection").withTag(KEY_DEVICE_CONNECTION).withIcon(GoogleMaterial.Icon.gmd_devices);
         PrimaryDrawerItem settingsDrawerItem = new PrimaryDrawerItem().withName("Settings").withTag("settings").withIcon(GoogleMaterial.Icon.gmd_settings);
 
         ndMenu = new DrawerBuilder()
@@ -176,36 +205,14 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
                 .withToolbar(tbMain)
                 .withCloseOnClick(true)
                 .withFireOnInitialOnClick(true)
-                .withSelectedItemByPosition(4)
+                .withSelectedItemByPosition(6)
                 .withDelayDrawerClickEvent(300)
                 .withDisplayBelowStatusBar(true)
                 .withTranslucentStatusBar(false)
                 .withOnDrawerItemClickListener(this)
-                .addDrawerItems(section, deviceDrawerItem, settingsDrawerItem, sectionDrawerItem, joyType1DrawerItem, joyType2DrawerItem, joyType3DrawerItem)
+                .addDrawerItems(section, deviceDrawerItem, settingsDrawerItem, sectionDrawerItem, joyType0DrawerItem, joyType1DrawerItem, joyType2DrawerItem, joyType3DrawerItem, joyType4DrawerItem)
                 .build();
     }
-
-    private void requestPermission(String[] permissions, AssentCallback callback) {
-        int requestCode = new Random().nextInt(100);
-        Assent.requestPermissions(callback, requestCode, permissions);
-    }
-
-    public void replaceFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.layout_fragment_container, fragment)
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public void checkBluetoothAvailability() {
-        if (BluetoothManager.getInstance().isBluetoothAvailable()) {
-            BluetoothManager.getInstance().enable();
-        } else {
-            finish();
-            Toast.makeText(this, "Bluetooth unavailable on your device", Toast.LENGTH_SHORT).show();
-        }
-    }
-
 
     @Override
     public void enterFullscreen() {
@@ -247,6 +254,72 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
             exitFullscreen();
         } else {
             enterFullscreen();
+        }
+    }
+
+    @Override
+    public void setActivityTitle(int titleResId) {
+        setTitle(titleResId);
+    }
+
+    @Override
+    public void setActivityTitle(String title) {
+        setTitle(title);
+    }
+
+    public void replaceFragment(Fragment fragment, String fragmentName) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.layout_fragment_container, fragment, fragmentName)
+                .addToBackStack(fragmentName)
+                .commit();
+    }
+
+    public void checkBluetoothAvailability() {
+        if (BluetoothManager.getInstance().isBluetoothAvailable()) {
+            BluetoothManager.getInstance().enable();
+        } else {
+            finish();
+            Toast.makeText(this, "Bluetooth unavailable on your device", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void requestPermission(String[] permissions, AssentCallback callback) {
+        int requestCode = new Random().nextInt(100);
+        Assent.requestPermissions(callback, requestCode, permissions);
+    }
+
+    private void openBasicGamepadFragment() {
+        boolean fragmentPopped = getSupportFragmentManager().popBackStackImmediate(KEY_BASIC_GAMEPAD_1, 0);
+        if (!fragmentPopped) {
+            replaceFragment(BasicGamepad1Fragment.newInstance(), KEY_BASIC_GAMEPAD_1);
+        }
+    }
+
+    private void openAssaultHorizonFragment() {
+        boolean fragmentPopped = getSupportFragmentManager().popBackStackImmediate(KEY_ASSAULT_HORIZON, 0);
+        if (!fragmentPopped) {
+            replaceFragment(AssaultHorizonFragment.newInstance(), KEY_ASSAULT_HORIZON);
+        }
+    }
+
+    private void openFinalFantasyXIIIFragment() {
+        boolean fragmentPopped = getSupportFragmentManager().popBackStackImmediate(KEY_FINAL_FANTASY_XIII, 0);
+        if (!fragmentPopped) {
+            replaceFragment(FinalFantasyXIIIFragment.newInstance(), KEY_FINAL_FANTASY_XIII);
+        }
+    }
+
+    private void openAwesomenautsFragment() {
+        boolean fragmentPopped = getSupportFragmentManager().popBackStackImmediate(KEY_AWESOMENAUTS, 0);
+        if (!fragmentPopped) {
+            replaceFragment(AwesomenautsFragment.newInstance(), KEY_AWESOMENAUTS);
+        }
+    }
+
+    private void openBombSquadFragment() {
+        boolean fragmentPopped = getSupportFragmentManager().popBackStackImmediate(KEY_BOMBSQUAD, 0);
+        if (!fragmentPopped) {
+            replaceFragment(BombSquadFragment.newInstance(), KEY_BOMBSQUAD);
         }
     }
 }

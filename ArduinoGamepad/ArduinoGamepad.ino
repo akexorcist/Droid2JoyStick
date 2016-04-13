@@ -131,14 +131,19 @@ void sendAxisState(String command) {
     Joystick.setYAxis(yValue);
   } else if(axisId == 1) {
     Joystick.setZAxis(xValue);
-    Joystick.setZAxisRotation(yValue);
+//    int nyValue = (int) (((float) yValue + 127.0) * (360.0 / 256.0));
+//    Joystick.setXAxisRotation(nyValue);
+//    Joystick.setZAxisRotation(nyValue);
+//    Joystick.setRudder(yValue);
+    Joystick.setRudder(yValue + 127);
   }
 }
 
 void setDefaultJoystickValue() {
   Joystick.setXAxisRotation(180);
   Joystick.setYAxisRotation(180);
-  Joystick.setRudder(127);
+  Joystick.setZAxisRotation(180);
+//  Joystick.setRudder(127);
   Joystick.setThrottle(127);
 }
 

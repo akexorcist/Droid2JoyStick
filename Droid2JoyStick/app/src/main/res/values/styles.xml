@@ -14,9 +14,15 @@
         <item name="colorControlNormal">@color/white</item>
     </style>
 
-    <style name="AssaultHorizonImageButton" parent="@style/Widget.AppCompat.Button.Colored">
+    <style name="GamepadImageButton" parent="@style/Widget.AppCompat.Button.Colored">
         <item name="android:scaleType">fitCenter</item>
         <item name="android:tint">@color/extra_dark_gray</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
+    <style name="GamepadButton" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">@dimen/default_text_button_size_small</item>
+        <item name="android:textColor">@color/white</item>
         <item name="colorButtonNormal">@color/colorAccent</item>
     </style>
 
@@ -27,6 +33,20 @@
         <item name="android:scaleType">fitCenter</item>
         <item name="android:tint">@color/white</item>
         <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
+    <style name="EmptySpace">
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="EmptySpace.Horizontal" parent="EmptySpace">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="EmptySpace.Vertical" parent="EmptySpace">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
     </style>
 
 </resources>

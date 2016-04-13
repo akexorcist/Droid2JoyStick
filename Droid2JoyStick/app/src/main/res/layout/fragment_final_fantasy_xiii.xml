@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.akexorcist.d2j.widget.JoyStickPad
+                android:id="@+id/js_analog_left"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="30dp"
+                android:background="@drawable/shape_gamepad_bg">
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/shape_gamepad_stick" />
+
+            </com.akexorcist.d2j.widget.JoyStickPad>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <com.akexorcist.d2j.widget.GamepadImageButton
+                        android:id="@+id/btn_select"
+                        style="@style/GamepadImageButton"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ic_btn_select" />
+
+                    <com.akexorcist.d2j.widget.GamepadImageButton
+                        android:id="@+id/btn_start"
+                        style="@style/GamepadImageButton"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_btn_start" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.akexorcist.d2j.widget.GamepadImageButton
+                        android:id="@+id/btn_r3"
+                        style="@style/GamepadImageButton"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ic_btn_r3" />
+
+                    <com.akexorcist.d2j.widget.GamepadImageButton
+                        android:id="@+id/btn_l3"
+                        style="@style/GamepadImageButton"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_btn_l3" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.akexorcist.d2j.widget.JoyStickPad
+                android:id="@+id/js_analog_right"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="30dp"
+                android:background="@drawable/shape_gamepad_bg">
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/shape_gamepad_stick" />
+
+            </com.akexorcist.d2j.widget.JoyStickPad>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_l2"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_btn_l2" />
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_l1"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_btn_l1" />
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_r1"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_btn_r1" />
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_r2"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_btn_r2" />
+
+            <Space style="@style/EmptySpace.Horizontal" />
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_triangle"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_btn_triangle" />
+
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_square"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_btn_square" />
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_circle"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_btn_circle" />
+
+            <com.akexorcist.d2j.widget.GamepadImageButton
+                android:id="@+id/btn_cross"
+                style="@style/GamepadImageButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_btn_cross" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btn_fullscreen"
+        style="@style/FullscreenButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+</RelativeLayout>
