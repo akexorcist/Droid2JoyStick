@@ -6,7 +6,7 @@ Use android device as a gamepad for your PC or another android device.
 ![Droid2JoyStick Photo 2](https://raw.githubusercontent.com/akexorcist/Droid2JoyStick/master/image/photo_002.jpg)
 
 ## Screenshot
-![Droid2JoyStick Screenshot 1](https://raw.githubusercontent.com/akexorcist/Droid2JoyStick/master/image/screenshot_001.jpg)
+![Droid2JoyStick Screenshot 1](https://raw.githubusercontent.com/akexorcist/Droid2JoyStick/master/image/screenshot_003.jpg)
 
 ![Droid2JoyStick Screenshot 2](https://raw.githubusercontent.com/akexorcist/Droid2JoyStick/master/image/screenshot_002.jpg)
 
